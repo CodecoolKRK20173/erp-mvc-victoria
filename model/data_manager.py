@@ -9,10 +9,11 @@ def get_table_from_file(file_name):
     Returns:
          list: List of lists read from a file.
     """
-    with open(file_name, "r") as file:
-        lines = file.readlines()
-    table = [element.replace("\n", "").split(";") for element in lines]
-    return table
+   with open (filename, "r") as data_table:
+        data_table = [element.split(';') for element in data_table.read().split('\n')]
+        data_table.pop()
+        # returns list of data lists
+        return data_table
 
 
 def write_table_to_file(file_name, table):
