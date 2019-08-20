@@ -82,14 +82,4 @@ def get_choice(options):
     return inputs[0]
 
 def print_error_message(message):
-    """
-    Displays an error message (example: ``Error: @message``)
-
-    Args:
-        message (str): error message to be displayed
-
-    Returns:
-        None: This function doesn't return anything it only prints to console.
-    """
-
-    # your code
+    print(f"``Error: {message}``")
