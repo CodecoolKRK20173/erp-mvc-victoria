@@ -61,27 +61,10 @@ def print_result(result, label):
 
 
 def print_menu(title, list_options, exit_message):
-    """
-    Displays a menu. Sample output:
-        Main menu:
-            (1) Store manager
-            (2) Human resources manager
-            (3) Inventory manager
-            (4) Accounting manager
-            (5) Sales manager
-            (6) Customer relationship management (CRM)
-            (0) Exit program
-
-    Args:
-        title (str): menu title
-        list_options (list): list of strings - options that will be shown in menu
-        exit_message (str): the last option with (0) (example: "Back to main menu")
-
-    Returns:
-        None: This function doesn't return anything it only prints to console.
-    """
-
-    # your code
+    print(f"{title}: ")
+    for index, option in enumerate(list_options):
+        print(f"    ({index+1}) {option}")
+    print(f"    (0) {exit_message}")
 
 
 def get_inputs(list_labels, title):
