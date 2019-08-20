@@ -2,27 +2,47 @@
 
 
 def print_table(table, title_list):
-    """
-    Prints table with data.
+    table.insert(0, title_list)
+    i = 1
+    # list of all elements for the table (except index)
+    item_list = []
+    # longest item in table column
+    item_length = []
+    while i < len(table[0]):
+        for item in table:
+            item_list.append(item[i])
+        i += 1
+    # amount of columns for future table
+    data_table_length = len(table)
+    # adding length of first column (id)
+    item_length.append(8)
+    # getting the longest element from each column
+    i = 1
+    while i < len(table[0]):
+        item_length.append(len(max(item_list[data_table_length*(i-1):data_table_length*i], key = len)))
+        i += 1
+    
+    # amount of dashes for all the columns
+    amount_of_dashes = 0
+    for column in item_length:
+        amount_of_dashes += column
 
-    Example:
-        /-----------------------------------\
-        |   id   |      title     |  type   |
-        |--------|----------------|---------|
-        |   0    | Counter strike |    fps  |
-        |--------|----------------|---------|
-        |   1    |       fo       |    fps  |
-        \-----------------------------------/
+    # adding spaces between columns
+    amount_of_dashes += (len(table[0]) + 2) * 2
+    amount_of_dashes = "-" * amount_of_dashes
+    
+    #printing the table
+    print(f"/{amount_of_dashes}\\")
+    
+    i = 0
+    while i < len(table[0]):
+        for row in table:
+            row[i] = row[i].rjust(item_length[i])
+        i += 1
 
-    Args:
-        table (list): list of lists - table to display
-        title_list (list): list containing table headers
-
-    Returns:
-        None: This function doesn't return anything it only prints to console.
-    """
-
-    # your goes code
+    for row in table:
+        print("|"," | ".join(row),"|")
+        print(f"{amount_of_dashes}--")
 
 
 def print_result(result, label):
