@@ -12,7 +12,7 @@ def choose():
     inputs = terminal_view.get_inputs(["Please enter a number: "], "")
     option = inputs[0]
     if option == "1":
-        show_table(data_table)
+        terminal_view.print_table(data_table, ["id", "title", "manufacturer", "price", "in_stock"])
     elif option == "2":
         add(data_table)
     elif option == "3":
