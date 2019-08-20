@@ -9,7 +9,7 @@ def get_table_from_file(file_name):
     Returns:
          list: List of lists read from a file.
     """
-   with open (filename, "r") as data_table:
+    with open (file_name, "r") as data_table:
         data_table = [element.split(';') for element in data_table.read().split('\n')]
         data_table.pop()
         # returns list of data lists
