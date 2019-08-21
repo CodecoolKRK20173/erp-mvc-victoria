@@ -2,6 +2,7 @@
 implement commonly used functions here
 """
 import random
+from controller.common import get_user_record
 
 def generate_random(table):
     """
@@ -42,3 +43,11 @@ def generate_random(table):
     random.shuffle(generated)
 
     return "".join(generated)
+
+def add_new_record(table, labels):
+    record = get_user_record(labels)
+    record.insert(0, generate_random(table))
+    table.append(record)
+    print(table)
+    return table
+    

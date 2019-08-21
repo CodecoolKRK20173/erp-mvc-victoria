@@ -11,10 +11,10 @@ Data table structure:
 
 # everything you'll need is imported:
 from model import data_manager
-from model import common
+from model.common import add_new_record
 
 
-def add(table, record):
+def add(table, labels):
     """
     Add new record to table
 
@@ -25,8 +25,10 @@ def add(table, record):
     Returns:
         list: Table with a new record
     """
-    # your code
 
+    
+    table = add_new_record(table, labels)
+    data_manager.write_table_to_file("model/store/games.csv", table)
     return table
 
 
