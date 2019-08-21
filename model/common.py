@@ -48,6 +48,5 @@ def add_new_record(table, labels):
     record = get_user_record(labels)
     record.insert(0, generate_random(table))
     table.append(record)
-    print(table)
     return table
     
