@@ -3,7 +3,6 @@ implement commonly used functions here
 """
 import random
 
-
 def generate_random(table):
     """
     Generates random and unique string. Used for id/key generation:
@@ -17,8 +16,29 @@ def generate_random(table):
         string: Random and unique string
     """
 
-    generated = ''
+    generated = []
 
-    # your code
+    # getting list of existing ids in the table
+    id_list = []
+    for item in table:
+        id_list.append(item[0])
+    special_characters = list(map(chr, range(33, 48))) + list(map(chr, range(58, 59))) + list(map(chr, range(60, 65))) + list(map(chr, range(123, 127)))
+    numbers = list(map(chr, range(48, 58)))
+    lower_case_letters = list(map(chr, range(97, 123)))
+    upper_case_letters = list(map(chr, range(65, 91)))
+    is_generating = True
+    while is_generating:
+        i = 0
+        while i < 2:
+            generated.append(random.choice(lower_case_letters))
+            generated.append(random.choice(upper_case_letters))
+            generated.append(random.choice(numbers))
+            generated.append(random.choice(special_characters))
+            i += 1
+        if "".join(generated) not in id_list:
+            is_generating = False
+        else:
+            generated = []
+    random.shuffle(generated)
 
-    return generated
+    return "".join(generated)
