@@ -52,8 +52,8 @@ def add_new_record(table, labels):
     print("New item added!")
     return table
 
-def get_id_to_remove():
-    id_to_remove = get_inputs(["Please enter an id of item you wish to remove: "], "")
+def get_user_id(action):
+    id_to_remove = get_inputs([f"Please enter an id of item you wish to {action}: "], "")
     print("\nThe item has been removed!\n")
     return id_to_remove[0]
 

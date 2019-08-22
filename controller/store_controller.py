@@ -1,6 +1,6 @@
 # everything you'll need is imported:
 from model.store import store
-from model.common import get_id_to_remove
+from model.common import get_user_id
 from model import data_manager
 from view import terminal_view
 from controller import common
@@ -27,9 +27,9 @@ def run():
             table_titles.pop(0)
             store.add(data_table, table_titles)
         elif choice == "3":
-            store.remove(data_table, get_id_to_remove())
+            store.remove(data_table, get_user_id("remove"))
         elif choice == "4":
-            store.update(data_table)
+            store.update(data_table, get_user_id("update"))
         elif choice == "5":
             sales_controller.run()
         elif choice == "6":
