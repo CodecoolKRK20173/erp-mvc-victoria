@@ -13,7 +13,7 @@ from model import data_manager
 from model import common
 
 
-def add(table, record):
+def add(table, labels):
     """
     Add new record to table
 
@@ -24,8 +24,8 @@ def add(table, record):
     Returns:
         list: Table with a new record
     """
-    # your code
-
+    table = common.add_new_record(table, labels)
+    data_manager.write_table_to_file("crm/customers/items.csv", table)
     return table
 
 
@@ -41,9 +41,9 @@ def remove(table, id_):
         list: Table without specified record.
     """
 
-    # your code
-
-    return table
+    updated_table = common.remove_item_by_id(table, id_)
+    data_manager.write_table_to_file("crm/customers/items.csv", updated_table)
+    return updated_table
 
 
 def update(table, id_, record):
@@ -59,9 +59,9 @@ def update(table, id_, record):
         list: table with updated record
     """
 
-    # your code
-
-    return table
+    updated_table = common.update_item_by_id(table, id_, record)
+    data_manager.write_table_to_file("crm/customers/items.csv", updated_table)
+    return updated_table
 
 
 # special functions:
