@@ -26,7 +26,7 @@ def add(table, labels):
         list: Table with a new record
     """
     table = common.add_new_record(table, labels)
-    data_manager.write_table_to_file("inventory/inventory.csv", table)
+    data_manager.write_table_to_file("model/inventory/inventory.csv", table)
     return table
 
 
@@ -43,7 +43,7 @@ def remove(table, id_):
     """
 
     updated_table = common.remove_item_by_id(table, id_)
-    data_manager.write_table_to_file("inventory/inventory.csv", updated_table)
+    data_manager.write_table_to_file("model/inventory/inventory.csv", updated_table)
     return updated_table
 
 
@@ -61,7 +61,7 @@ def update(table, id_, record):
     """
 
     updated_table = common.update_item_by_id(table, id_, record)
-    data_manager.write_table_to_file("inventory/inventory.csv", updated_table)
+    data_manager.write_table_to_file("model/inventory/inventory.csv", updated_table)
     return updated_table
 
 
