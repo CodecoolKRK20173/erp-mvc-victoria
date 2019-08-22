@@ -29,7 +29,7 @@ def run():
         elif choice == "3":
             store.remove(data_table, get_user_id("remove"))
         elif choice == "4":
-            store.update(data_table, get_user_id("update"))
+            store.update(data_table, get_user_id("update"), common.get_user_record(table_titles[1:]))
         elif choice == "5":
             sales_controller.run()
         elif choice == "6":

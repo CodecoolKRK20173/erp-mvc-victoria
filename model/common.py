@@ -54,11 +54,20 @@ def add_new_record(table, labels):
 
 def get_user_id(action):
     id_to_remove = get_inputs([f"Please enter an id of item you wish to {action}: "], "")
-    print("\nThe item has been removed!\n")
     return id_to_remove[0]
 
 def remove_item_by_id(table, id_):
     for item in table:
         if item[0] == id_:
             table.remove(item)
+    print("\nThe item has been removed!\n")
     return table
+
+def update_item_by_id(table, id_, record):
+    record.insert(0, id_)
+    for index in range(len(table)):
+        if table[index][0] == id_:
+            table[index] = record
+    print("\nThe item has been updated!\n")
+    return table
+    

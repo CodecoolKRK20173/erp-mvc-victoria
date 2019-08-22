@@ -59,10 +59,9 @@ def update(table, id_, record):
     Returns:
         list: table with updated record
     """
-
-    # your code
-
-    return table
+    updated_table = common.update_item_by_id(table, id_, record)
+    data_manager.write_table_to_file("model/store/games.csv", updated_table)
+    return updated_table
 
 
 # special functions:
