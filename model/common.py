@@ -3,6 +3,7 @@ implement commonly used functions here
 """
 import random
 from controller.common import get_user_record
+from view.terminal_view import get_inputs
 
 def generate_random(table):
     """
@@ -48,5 +49,16 @@ def add_new_record(table, labels):
     record = get_user_record(labels)
     record.insert(0, generate_random(table))
     table.append(record)
+    print("New item added!")
     return table
-    
+
+def get_id_to_remove():
+    id_to_remove = get_inputs(["Please enter an id of item you wish to remove: "], "")
+    print("\nThe item has been removed!\n")
+    return id_to_remove[0]
+
+def remove_item_by_id(table, id_):
+    for item in table:
+        if item[0] == id_:
+            table.remove(item)
+    return table

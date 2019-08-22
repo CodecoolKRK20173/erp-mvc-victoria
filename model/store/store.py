@@ -11,7 +11,7 @@ Data table structure:
 
 # everything you'll need is imported:
 from model import data_manager
-from model.common import add_new_record
+from model import common
 
 
 def add(table, labels):
@@ -25,9 +25,8 @@ def add(table, labels):
     Returns:
         list: Table with a new record
     """
-
     
-    table = add_new_record(table, labels)
+    table = common.add_new_record(table, labels)
     data_manager.write_table_to_file("model/store/games.csv", table)
     return table
 
@@ -43,10 +42,9 @@ def remove(table, id_):
     Returns:
         list: Table without specified record.
     """
-
-    # your code
-
-    return table
+    updated_table = common.remove_item_by_id(table, id_)
+    data_manager.write_table_to_file("model/store/games.csv", updated_table)
+    return updated_table
 
 
 def update(table, id_, record):

@@ -1,13 +1,12 @@
 # everything you'll need is imported:
 from model.store import store
+from model.common import get_id_to_remove
 from model import data_manager
 from view import terminal_view
 from controller import common
 from controller import root_controller
 
 def run():
-    #reading data from file
-    data_table = data_manager.get_table_from_file("model/store/games.csv")
     options = ["Display data as a table",
                "Add new data",
                "Remove data",
@@ -17,16 +16,18 @@ def run():
     table_titles = ["id", "title", "manufacturer", "price", "in_stock"]
     choice = None
     while choice != "0":
-        terminal_view.print_menu("Store manager menu: ", options, "Go back to main menu")
+        terminal_view.print_menu("Store manager menu ", options, "Go back to main menu")
         inputs = terminal_view.get_inputs(["Please enter a number: "], "")
         choice = inputs[0]
+        #reading data from file
+        data_table = data_manager.get_table_from_file("model/store/games.csv")
         if choice == "1":
             terminal_view.print_table(data_table, table_titles)
         elif choice == "2":
             table_titles.pop(0)
             store.add(data_table, table_titles)
         elif choice == "3":
-            store.remove(data_table)
+            store.remove(data_table, get_id_to_remove())
         elif choice == "4":
             store.update(data_table)
         elif choice == "5":

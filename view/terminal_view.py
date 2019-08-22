@@ -10,7 +10,7 @@ def print_table(table, title_list):
     item_length = []
     while i < len(table[0]):
         for item in table:
-            item_list.append(item[i])
+            item_list.append(str(item[i]))
         i += 1
     # amount of columns for future table
     data_table_length = len(table)
@@ -21,7 +21,8 @@ def print_table(table, title_list):
     while i < len(table[0]):
         item_length.append(len(max(item_list[data_table_length*(i-1):data_table_length*i], key = len)))
         i += 1
-    
+    print(table[0])
+    print(item_length)
     # amount of dashes for all the columns
     amount_of_dashes = 0
     for column in item_length:
