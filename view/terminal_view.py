@@ -3,6 +3,7 @@
 
 def print_table(table, title_list):
     table.insert(0, title_list)
+
     i = 1
     # list of all elements for the table (except index)
     item_list = []
@@ -21,8 +22,7 @@ def print_table(table, title_list):
     while i < len(table[0]):
         item_length.append(len(max(item_list[data_table_length*(i-1):data_table_length*i], key = len)))
         i += 1
-    print(table[0])
-    print(item_length)
+
     # amount of dashes for all the columns
     amount_of_dashes = 0
     for column in item_length:
@@ -44,7 +44,12 @@ def print_table(table, title_list):
     for row in table:
         print("|"," | ".join(row),"|")
         print(f"{amount_of_dashes}--")
-
+    
+    i = 0
+    while i < len(table[0]):
+        for row in table:
+            row[i] = row[i].lstrip(" ")
+        i += 1
 
 def print_result(result, label):
     """
